@@ -1,0 +1,65 @@
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+<Macro VHost $host $dir>
+        ServerAdmin webmaster@localhost
+        ServerName $host
+        ServerAlias www.$host
+        DocumentRoot "$dir"
+
+	  SSLEngine on
+	  SSLCertificateFile "/docker-data/docker.crt"
+	  SSLCertificateKeyFile "/docker-data/docker.key"
+
+        ErrorLog ${APACHE_LOG_DIR}/$host-error.log
+        CustomLog ${APACHE_LOG_DIR}/$host-access.log combined
+
+        <Directory $dir>
+                Options All
+                AllowOverride All
+                Allow from all
+        </Directory>
+</Macro>
+
+<VirtualHost *:443>
+use Vhost cpone.dev /var/www/html/cpone/public
+</VirtualHost>
+
+<VirtualHost *:443>
+use Vhost lisa.dev /var/www/html/out/outsource-lisa/public
+</VirtualHost>
+
+<VirtualHost *:443>
+use Vhost cpone-cms.dev /var/www/html/cpone-cms
+</VirtualHost>
+
+<VirtualHost *:443>
+use Vhost trueidc.dev /var/www/html/cloudcms/public
+</VirtualHost>
+
+<VirtualHost *:443>
+use Vhost agent.brandguard.dev /var/www/html/brandguard/agent-true/public
+</VirtualHost>
+
+<VirtualHost *:443>
+use Vhost kingpower.dev /var/www/html/kingpower/public
+</VirtualHost>
+
+<VirtualHost *:443>
+use Vhost weloveshopping.dev /var/www/html/weloveshopping/public
+</VirtualHost>
+
+<VirtualHost *:443>
+use Vhost siriraj.dev /var/www/html/siriraj/public
+</VirtualHost>
+
+<VirtualHost *:443>
+use Vhost quiz.loc /var/www/html/quiz/public
+</VirtualHost>
+
+<VirtualHost *:443>
+use Vhost foodretail.dev /var/www/html/foodretail/public
+</VirtualHost>
+
+# command prefix $name $host $dir
+## ex.
+# use Vhost example.com /var/www/html/example.com
