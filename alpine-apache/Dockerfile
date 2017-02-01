@@ -13,6 +13,7 @@ RUN mkdir -p /run/apache2 && \
     chown -R apache:apache /www
 ADD 000-default.conf /etc/apache2/conf.d/000-default.conf
 ADD 001-default-ssl.conf /etc/apache2/conf.d/001-default-ssl.conf
+ADD httpd.conf /etc/apache2/httpd.conf
 COPY supervisord.conf /etc/supervisord.conf
 EXPOSE 80
 EXPOSE 443
