@@ -1,0 +1,6 @@
+#!/bin/bash
+PATH_WEB=""
+PATH_DOCKERDATA=""
+DOCKER_NAME_HOSTNAME=""
+docker rm -f $DOCKER_NAME_HOSTNAME
+docker run -d -p 18880:80 -p 18444:443 --hostname $DOCKER_NAME_HOSTNAME --net mynet --ip 172.16.0.2 --name=$DOCKER_NAME_HOSTNAME -v $PATH_WEB:/www -v $PATH_DOCKERDATA:/docker-data -P my:alpine_apache 

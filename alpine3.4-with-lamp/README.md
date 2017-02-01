@@ -1,1 +1,0 @@
-docker run -d -p 18444:443 -p 2223:22 -p 33061:3306 --hostname koko.dev --net mynet --ip 172.16.0.3 -v $HOME/Source:/var/www/html -v $HOME/docker-data/mysql:/var/lib/mysql -v $HOME/docker-data/hosts:/etc/hosts -v $HOME/docker-data:/docker-data -P alpine:lamp-mix
